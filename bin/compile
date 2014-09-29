@@ -44,14 +44,14 @@ function check_and_layout_ibm_db_dependencies() {
 
     echo "Downloading IBM Data Server driver..."
 #curl "www.ng.bluemix.net/docs/Services/BluStratus/samples/clidriver.tgz" -s -o ${DB2_DIR}/clidriver.tgz
-curl "https://public.dhe.ibm.com/ibmdl/export/pub/software/data/db2/drivers/odbc_cli/linuxx64_odbc_cli.tar.gz" -s -o ${DB2_DIR}/clidriver.tgz
+curl "public.dhe.ibm.com/ibmdl/export/pub/software/data/db2/drivers/odbc_cli/linuxx64_odbc_cli.tar.gz" -s -o ${DB2_DIR}/clidriver.tgz
 
     tar xzf ${DB2_DIR}/clidriver.tgz -C ${DB2_DIR}
 
     #Delete the archive
     rm -rf ${DB2_DIR}/clidriver.tgz
 
-    mv $DB2_DIR/clidriver .heroku/clidriver
+    mv ${DB2_DIR}/clidriver .heroku/clidriver
 
     export IBM_DB_HOME="$BUILD_DIR/.heroku/clidriver"
   fi
